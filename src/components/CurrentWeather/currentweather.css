@@ -1,0 +1,23 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-weather-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.current-weather-icon {
+    height: 200px;
+    width: 200px;
+}
+
+.extra-current-weather-info {
+    display: flex;
+    gap: 0.25em;
+}
