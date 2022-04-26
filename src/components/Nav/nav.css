@@ -1,0 +1,13 @@
+nav {
+    height: 5vh;
+    width: 100vw;
+}
+
+.nav-links {
+    display: none;
+}
+
+nav ul a {
+    color: black;
+    text-decoration: none;
+}

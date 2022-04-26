@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaWind } from 'react-icons/fa';
+import { BiDroplet } from 'react-icons/bi';
 import './currentweather.css';
 
 const CurrentWeather = ({ currentWeatherData, capitalizeDescription }) => {
@@ -17,11 +19,19 @@ const CurrentWeather = ({ currentWeatherData, capitalizeDescription }) => {
 						alt='weather-icon'
 					/>
 					<h3>{capitalizeDescription()}</h3>
-					<h2>{currentWeatherData.temp}°F</h2>
-					<div className='extra-current-weather-info'>
-						<h6>{currentWeatherData.wind_spd} mph</h6>
-						<h6>{currentWeatherData.rh}%</h6>
-					</div>
+					<h2 className='current-weather-temperature'>
+						{currentWeatherData.temp}°F
+					</h2>
+					<ul className='extra-current-weather-info'>
+						<li>
+							<FaWind />{' '}
+						</li>
+						<li>{currentWeatherData.wind_spd} mph</li>
+						<li>
+							<BiDroplet />{' '}
+						</li>
+						<li>{currentWeatherData.rh}%</li>
+					</ul>
 				</div>
 			</main>
 		);
