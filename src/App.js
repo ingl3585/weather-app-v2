@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Nav from './components/Nav/Nav';
 import CurrentWeather from './components/CurrentWeather/CurrentWeather';
+import HourlyWeather from './components/HourlyWeather/HourlyWeather';
+import ForecastWeather from './components/ForecastWeather/ForecastWeather';
 import './App.css';
 
 const BASE_WEATHER_URL = `https://api.weatherbit.io/v2.0`;
@@ -19,7 +20,7 @@ const App = () => {
 				const latitude = location.coords.latitude;
 				const longitude = location.coords.longitude;
 				const currentWeatherEndpoint = `${BASE_WEATHER_URL}/current?lat=${latitude}&lon=${longitude}&key=${process.env.REACT_APP_API_KEY}&units=I`;
-				const forecastWeatherEndpoint = `${BASE_WEATHER_URL}/forecast/daily?lat=${latitude}&lon=${longitude}&key=${process.env.REACT_APP_API_KEY}&units=I&days=5`;
+				const forecastWeatherEndpoint = `${BASE_WEATHER_URL}/forecast/daily?lat=${latitude}&lon=${longitude}&key=${process.env.REACT_APP_API_KEY}&units=I&days=6`;
 				const [
 					currentWeatherEndpointResponse,
 					forecastWeatherEndpointResponse,
@@ -63,11 +64,16 @@ const App = () => {
 	};
 	return (
 		<div className='app-container'>
-			<Nav />
 			<CurrentWeather
+				className='current-weather'
 				currentWeatherData={currentWeatherData}
 				capitalizeDescription={capitalizeDescription}
 			/>
+			<ForecastWeather
+				className='forecast-weather'
+				forecastWeatherData={forecastWeatherData}
+			/>
+			<HourlyWeather className='hourly-weather' />
 		</div>
 	);
 };

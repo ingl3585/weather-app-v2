@@ -9,6 +9,7 @@ const CurrentWeather = ({ currentWeatherData, capitalizeDescription }) => {
 	if (currentWeatherData) {
 		return (
 			<main>
+				<h1 className='current-weather-title'>Right Now In:</h1>
 				<h1 className='city-state'>
 					{currentWeatherData.city_name}, {currentWeatherData.state_code}
 				</h1>

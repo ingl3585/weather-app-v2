@@ -1,14 +1,15 @@
 main {
-    height: 95vh;
-    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.city-state {
+.current-weather-title, .city-state {
     font-size: 2.25rem;
+}
+
+.city-state {
     font-weight: 700;
 }
 
