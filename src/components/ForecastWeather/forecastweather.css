@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 6.5em;
+    padding: 6.5em 6.5em;
 }
 
 .forecast-weather-title {
@@ -14,7 +14,7 @@
 
 .weather-forecast-list {
     height: 100%;
-    width: 100%;
+    width: 85%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     align-items: center;
