@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Search from './components/Search/Search';
 import CurrentWeather from './components/CurrentWeather/CurrentWeather';
 import ForecastWeather from './components/ForecastWeather/ForecastWeather';
+import { BeatLoader } from 'react-spinners';
 import './App.css';
 
 const BASE_WEATHER_URL = `https://api.weatherbit.io/v2.0`;
@@ -28,7 +29,7 @@ const App = () => {
 					fetch(currentWeatherEndpoint),
 					fetch(forecastWeatherEndpoint),
 				]);
-				const [currentData, forecastData, hourlyData] = await Promise.all([
+				const [currentData, forecastData] = await Promise.all([
 					currentWeatherEndpointResponse.json(),
 					forecastWeatherEndpointResponse.json(),
 				]);
@@ -44,7 +45,7 @@ const App = () => {
 				}
 			});
 		} catch (error) {
-			console.log(error.message);
+			console.error(error.message);
 		}
 	};
 	// Call APIs on Page Load
@@ -65,15 +66,20 @@ const App = () => {
 	if (currentWeatherData && forecastWeatherData) {
 		return (
 			<div className='app-container'>
+				<Search />
 				<CurrentWeather
-					className='current-weather'
 					currentWeatherData={currentWeatherData}
 					capitalizeDescription={capitalizeDescription}
 				/>
-				<ForecastWeather
-					className='forecast-weather'
-					forecastWeatherData={forecastWeatherData}
-				/>
+				<ForecastWeather forecastWeatherData={forecastWeatherData} />
+			</div>
+		);
+	} else if (!currentWeatherData && !forecastWeatherData) {
+		return (
+			<div className='loading'>
+				<BeatLoader margin={30} color='#57A0EE' />
+				<h1 className='loading-title'>Total Weather</h1>
+				<BeatLoader margin={30} color='#57A0EE' />
 			</div>
 		);
 	}

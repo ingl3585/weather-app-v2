@@ -8,7 +8,7 @@ const CurrentWeather = ({ currentWeatherData, capitalizeDescription }) => {
 	const weatherIconUrl = `https://weather-app-react-native.s3.us-west-1.amazonaws.com/${weatherIcon}.svg`;
 	if (currentWeatherData) {
 		return (
-			<main>
+			<div className='current-weather-container'>
 				<h1 className='current-weather-title'>Right Now In:</h1>
 				<h1 className='city-state'>
 					{currentWeatherData.city_name}, {currentWeatherData.state_code}
@@ -34,7 +34,7 @@ const CurrentWeather = ({ currentWeatherData, capitalizeDescription }) => {
 						<li>{currentWeatherData.rh}%</li>
 					</ul>
 				</div>
-			</main>
+			</div>
 		);
 	}
 };

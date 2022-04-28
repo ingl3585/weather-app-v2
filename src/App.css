@@ -14,12 +14,20 @@
   width: 100vw;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 15fr;
 }
 
-.current-weather {
-  grid-column: 1/2;
+.loading {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
 }
 
-.forecast-weather {
-  grid-column: 2/3;
+.loading-title {
+  margin-bottom: 0.25em;
+  color: #57A0EE;
 }
