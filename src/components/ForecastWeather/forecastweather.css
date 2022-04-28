@@ -5,6 +5,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 6.5em;
+}
+
+.forecast-weather-title {
+    text-decoration: underline;
 }
 
 .weather-forecast-list {

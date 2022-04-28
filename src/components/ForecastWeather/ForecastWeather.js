@@ -20,13 +20,13 @@ const ForecastWeather = ({ forecastWeatherData }) => {
 			return isNaN(dayOfWeek)
 				? null
 				: [
-						'Sunday',
 						'Monday',
 						'Tuesday',
 						'Wednesday',
 						'Thursday',
 						'Friday',
 						'Saturday',
+						'Sunday',
 				  ][dayOfWeek];
 		};
 		// HTML Format
@@ -34,8 +34,8 @@ const ForecastWeather = ({ forecastWeatherData }) => {
 			<ul className='weather-forecast-list' key={data.datetime}>
 				<li>{getDayOfWeek(date)}</li>
 				<img src={weatherIconUrl} alt='weather-icon' />
-				<li>H: {data.max_temp}</li>
-				<li>L: {data.low_temp}</li>
+				<li>H: {Math.round(data.max_temp)}</li>
+				<li>L: {Math.round(data.low_temp)}</li>
 				<li>
 					<BiDroplet /> {data.pop}%
 				</li>
@@ -44,7 +44,7 @@ const ForecastWeather = ({ forecastWeatherData }) => {
 	});
 	return (
 		<div className='forecast-weather-container'>
-			<h1>Weather Forecast</h1>
+			<h1 className='forecast-weather-title'>Weather Forecast</h1>
 			{weatherDataList}
 		</div>
 	);

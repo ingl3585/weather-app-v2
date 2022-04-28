@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import CurrentWeather from './components/CurrentWeather/CurrentWeather';
-import HourlyWeather from './components/HourlyWeather/HourlyWeather';
 import ForecastWeather from './components/ForecastWeather/ForecastWeather';
 import './App.css';
 
@@ -28,7 +27,7 @@ const App = () => {
 					fetch(currentWeatherEndpoint),
 					fetch(forecastWeatherEndpoint),
 				]);
-				const [currentData, forecastData] = await Promise.all([
+				const [currentData, forecastData, hourlyData] = await Promise.all([
 					currentWeatherEndpointResponse.json(),
 					forecastWeatherEndpointResponse.json(),
 				]);
@@ -62,20 +61,21 @@ const App = () => {
 		// Return New Description
 		return capitalized;
 	};
-	return (
-		<div className='app-container'>
-			<CurrentWeather
-				className='current-weather'
-				currentWeatherData={currentWeatherData}
-				capitalizeDescription={capitalizeDescription}
-			/>
-			<ForecastWeather
-				className='forecast-weather'
-				forecastWeatherData={forecastWeatherData}
-			/>
-			<HourlyWeather className='hourly-weather' />
-		</div>
-	);
+	if (currentWeatherData && forecastWeatherData) {
+		return (
+			<div className='app-container'>
+				<CurrentWeather
+					className='current-weather'
+					currentWeatherData={currentWeatherData}
+					capitalizeDescription={capitalizeDescription}
+				/>
+				<ForecastWeather
+					className='forecast-weather'
+					forecastWeatherData={forecastWeatherData}
+				/>
+			</div>
+		);
+	}
 };
 
 export default App;
