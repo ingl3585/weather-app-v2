@@ -4,17 +4,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1.5em;
+}
+
+.location-btn {
+    color: #57A0EE;
+    padding-top: 0.5em;
 }
 
 input {
-    padding: 0.25em;
+    font-size: 0.925rem;
+    padding: 0.5em 1em;
 }
 
-a {
-    height: 30px;
-    width: 75px;
-    border-radius: 15px;
+input:focus {
+    outline: none;
+}
+
+.search-btn {
     background-color: #57A0EE;
     color: white;
+    font-size: 1rem;
+    text-align: center;
     text-decoration: none;
+    border: none;
+    padding: 0.5em 1em;
 }

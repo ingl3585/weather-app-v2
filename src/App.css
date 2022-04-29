@@ -14,7 +14,7 @@
   width: 100vw;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr 15fr;
+  grid-template-rows: 1fr 5fr;
 }
 
 .loading {
@@ -28,6 +28,8 @@
 }
 
 .loading-title {
-  margin-bottom: 0.25em;
   color: #57A0EE;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 0.1em;
 }

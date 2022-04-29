@@ -3,13 +3,16 @@
     grid-row: 2/3;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: 0 6.5em;
+    gap: 0.5em;
+    padding: 0 5.25em;
 }
 
 .forecast-weather-title {
-    text-decoration: underline;
+    font-size: 2.25rem;
+    font-weight: 700;
+    border-bottom: 2px solid black;
 }
 
 .weather-forecast-list {
