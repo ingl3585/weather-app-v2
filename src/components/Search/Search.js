@@ -5,13 +5,16 @@ import './search.css';
 const Search = () => {
 	return (
 		<div className='search-container'>
-			<a className='location-btn' href='#/'>
-				<FaLocationArrow />
-			</a>
-			<input placeholder='(Ex: New York, NY)' />
-			<a className='search-btn' href='#/'>
-				Submit
-			</a>
+			<h1 className='search-title'>Total Weather</h1>
+			<div className='search-field'>
+				<a className='location-btn' href='#/'>
+					<FaLocationArrow />
+				</a>
+				<input placeholder='(Ex: New York, NY)' />
+				<a className='search-btn' href='#/'>
+					Submit
+				</a>
+			</div>
 		</div>
 	);
 };

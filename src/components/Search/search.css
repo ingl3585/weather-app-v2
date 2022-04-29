@@ -2,6 +2,20 @@
     grid-column: 1/3;
     grid-row: 1/2;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.search-title {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #57A0EE;
+}
+
+.search-field {
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.5em;
