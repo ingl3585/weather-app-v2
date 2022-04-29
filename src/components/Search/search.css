@@ -23,6 +23,9 @@
 
 .location-btn {
     color: #57A0EE;
+    background-color: white;
+    border: none;
+    cursor: pointer;
     padding-top: 0.5em;
 }
 
@@ -41,6 +44,7 @@ input:focus {
     font-size: 1rem;
     text-align: center;
     text-decoration: none;
+    cursor: pointer;
     border: none;
     padding: 0.5em 1em;
 }

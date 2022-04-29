@@ -8,14 +8,16 @@ import './App.css';
 const BASE_WEATHER_URL = `https://api.weatherbit.io/v2.0`;
 
 const App = () => {
-	// Current Weather Data State
+	// User Location Current Weather Data State
 	const [currentWeatherData, setCurrentWeatherData] = useState(null);
-	// Forecast Weather Data State
+	// User Location Forecast Weather Data State
 	const [forecastWeatherData, setForecastWeatherData] = useState(null);
+	// User Search Weather Data State
+	const [weatherSearch, setWeatherSearch] = useState('');
 	// Error Message State
 	const [error, setError] = useState(null);
-	// Weather API Call
-	const fetchWeatherData = async () => {
+	// User Location Weather API Call
+	const userLocationForecast = async () => {
 		try {
 			navigator.geolocation.getCurrentPosition(async (location) => {
 				const latitude = location.coords.latitude;
@@ -48,9 +50,35 @@ const App = () => {
 			console.error(error.message);
 		}
 	};
+	// User Search Weather API Call
+	const userSearchForecast = async () => {
+		console.log('clicked');
+		let cityState = weatherSearch;
+		const currentWeatherEndpoint = `${BASE_WEATHER_URL}/current?&key=${process.env.REACT_APP_API_KEY}&city=${cityState}&units=I`;
+		const forecastWeatherEndpoint = `${BASE_WEATHER_URL}/forecast/daily?&key=${process.env.REACT_APP_API_KEY}&city=${cityState}&days=6&units=I`;
+		const [currentWeatherEndpointResponse, forecastWeatherEndpointResponse] =
+			await Promise.all([
+				fetch(currentWeatherEndpoint),
+				fetch(forecastWeatherEndpoint),
+			]);
+		const [currentData, forecastData] = await Promise.all([
+			currentWeatherEndpointResponse.json(),
+			forecastWeatherEndpointResponse.json(),
+		]);
+		if (
+			currentWeatherEndpointResponse.ok &&
+			forecastWeatherEndpointResponse.ok
+		) {
+			setForecastWeatherData(forecastData.data);
+			setCurrentWeatherData(currentData.data[0]);
+		} else {
+			setError(forecastData.message);
+			setError(currentData.message);
+		}
+	};
 	// Call APIs on Page Load
 	useEffect(() => {
-		fetchWeatherData();
+		userLocationForecast();
 	}, []);
 	// Capitalize Weather Description (Dynamically)
 	const capitalizeDescription = () => {
@@ -66,7 +94,11 @@ const App = () => {
 	if (currentWeatherData && forecastWeatherData) {
 		return (
 			<div className='app-container'>
-				<Search />
+				<Search
+					userLocationForecast={userLocationForecast}
+					setWeatherSearch={setWeatherSearch}
+					userSearchForecast={userSearchForecast}
+				/>
 				<CurrentWeather
 					currentWeatherData={currentWeatherData}
 					capitalizeDescription={capitalizeDescription}

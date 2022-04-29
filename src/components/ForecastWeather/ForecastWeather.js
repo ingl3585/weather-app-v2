@@ -14,8 +14,6 @@ const ForecastWeather = ({ forecastWeatherData }) => {
 		// Convert Date to Day of Week
 		const getDayOfWeek = (date) => {
 			const dayOfWeek = new Date(date).getDay();
-			console.log(today);
-			console.log(date);
 			if (today === date) {
 				return 'Today';
 			}
