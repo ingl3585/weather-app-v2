@@ -106,7 +106,7 @@ const App = () => {
 				<ForecastWeather forecastWeatherData={forecastWeatherData} />
 			</div>
 		);
-	} else if (!currentWeatherData && !forecastWeatherData) {
+	} else if (!currentWeatherData || !forecastWeatherData) {
 		return (
 			<div className='loading'>
 				<BeatLoader margin={30} color='#57A0EE' />
