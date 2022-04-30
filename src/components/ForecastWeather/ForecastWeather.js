@@ -32,8 +32,12 @@ const ForecastWeather = ({ forecastWeatherData }) => {
 		// HTML Format
 		return (
 			<ul className='weather-forecast-list' key={data.datetime}>
-				<li>{getDayOfWeek(date)}</li>
-				<img src={weatherIconUrl} alt='weather-icon' />
+				<li className='weekday-title'>{getDayOfWeek(date)}</li>
+				<img
+					className='forecast-weather-icon'
+					src={weatherIconUrl}
+					alt='weather-icon'
+				/>
 				<li>H: {Math.round(data.max_temp)}</li>
 				<li>L: {Math.round(data.low_temp)}</li>
 				<li>

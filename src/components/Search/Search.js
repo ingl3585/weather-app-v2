@@ -12,7 +12,7 @@ const Search = ({
 			<h1 className='search-title'>Total Weather</h1>
 			<div className='search-field'>
 				<button className='location-btn' onClick={userLocationForecast}>
-					<FaLocationArrow />
+					<FaLocationArrow size={20} />
 				</button>
 				<input
 					onChange={(event) => {
