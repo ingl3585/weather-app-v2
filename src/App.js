@@ -52,8 +52,8 @@ const App = () => {
 	};
 	// User Search Weather API Call
 	const userSearchForecast = async () => {
-		console.log('clicked');
 		let cityState = weatherSearch;
+		console.log(cityState);
 		const currentWeatherEndpoint = `${BASE_WEATHER_URL}/current?&key=${process.env.REACT_APP_API_KEY}&city=${cityState}&units=I`;
 		const forecastWeatherEndpoint = `${BASE_WEATHER_URL}/forecast/daily?&key=${process.env.REACT_APP_API_KEY}&city=${cityState}&days=6&units=I`;
 		const [currentWeatherEndpointResponse, forecastWeatherEndpointResponse] =
@@ -109,9 +109,9 @@ const App = () => {
 	} else if (!currentWeatherData || !forecastWeatherData) {
 		return (
 			<div className='loading'>
-				<BeatLoader margin={30} color='#57A0EE' />
+				<BeatLoader margin={25} color='#57A0EE' />
 				<h1 className='loading-title'>Total Weather</h1>
-				<BeatLoader margin={30} color='#57A0EE' />
+				<BeatLoader margin={25} color='#57A0EE' />
 			</div>
 		);
 	}
