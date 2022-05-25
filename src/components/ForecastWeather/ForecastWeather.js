@@ -38,8 +38,8 @@ const ForecastWeather = ({ forecastWeatherData }) => {
 					src={weatherIconUrl}
 					alt='weather-icon'
 				/>
-				<li>H: {Math.round(data.max_temp)}</li>
-				<li>L: {Math.round(data.low_temp)}</li>
+				<li>H: {Math.round(data.max_temp)}°F</li>
+				<li>L: {Math.round(data.low_temp)}°F</li>
 				<li>
 					<BiDroplet /> {data.pop}%
 				</li>
