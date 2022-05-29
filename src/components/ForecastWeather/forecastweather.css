@@ -8,7 +8,7 @@
     background-color: #57A0EE;
     border-radius: 1em;
     gap: 0.5em;
-    margin: 0.5em;
+    margin: 0.5em 0.5em 1em 0.5em;
     padding: 1em;
 }
 
@@ -37,7 +37,7 @@
 
 @media screen and (min-width: 500px) {
     .forecast-weather-container {
-        margin: 1em 2em;
+        margin: 1em 2em 2em 2em;
     }
     .weather-forecast-list {
         font-size: 0.85rem;
@@ -46,7 +46,7 @@
 
 @media screen and (min-width: 768px) {
     .forecast-weather-container {
-        margin: 1em 4em;
+        margin: 2em 3em 3em 3em;
     }
     
     .weather-forecast-list {
@@ -58,5 +58,6 @@
     .forecast-weather-container {
         grid-column: 2/3;
         grid-row: 2/3;
+        margin: 2em 3em;
     }
 }
